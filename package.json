@@ -1,0 +1,31 @@
+{
+  "name": "matoapp",
+  "version": "1.0.0",
+  "description": "[V-Control] An out-of-the-box .NET MAUI component library",
+  "author": "linxiao <jevonsflash@qq.com>",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@element-plus/nuxt": "^1.0.10",
+    "@nuxt/content": "^2.13.4",
+    "@nuxtjs/axios": "^5.13.6",
+    "@pinia/nuxt": "^0.5.5",
+    "axios": "^1.7.7",
+    "element-plus": "^2.8.4",
+    "linq": "^4.0.3",
+    "nuxt": "^3.11.2",
+    "pinia": "^2.2.4",
+    "qrcode": "^1.5.4",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.77.8"
+  }
+}
