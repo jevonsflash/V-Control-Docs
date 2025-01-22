@@ -6,9 +6,31 @@
     </Head>
 
 
-    <el-container>
-      <el-aside width="250px">
-        <div class="content">
+    <el-container class="responsive-container">
+      <el-aside
+        width="250px"
+        class="responsive-aside"
+        :class="{ collapsed: isAsideCollapsed }"
+      >
+
+        <div
+          class="aside-header"
+          v-if="canAsideCollapsed"
+        >
+
+
+          <el-button
+            class="toggle-button"
+            size="mini"
+            @click="toggleAside"
+            :icon="isAsideCollapsed ? CaretTop : CaretBottom"
+          >
+
+            MENU
+          </el-button>
+        </div>
+        <div class="aside-content content">
+
 
 
 
@@ -60,7 +82,7 @@
 
         </div>
       </el-aside>
-      <el-main>
+      <el-main class="responsive-main">
 
         <section>
           <el-breadcrumb separator="/">
@@ -132,13 +154,23 @@ import Enumerable from "linq";
 import { config, IDocumentConfig, IDocumentGroupConfig } from "./detail-config";
 import { useAsyncData } from "nuxt/app";
 
+import {
+  ArrowUp, ArrowDown, CaretBottom, CaretTop
+} from '@element-plus/icons-vue'
 const currentPath = ref<string | undefined>("");
 const currentConfig = ref<IDocumentConfig>();
+const isAsideCollapsed = ref<boolean>(true);
+const canAsideCollapsed = ref<boolean>(true);
 const router = useRouter();
 const documentGroups = ref([] as IDocumentGroupConfig[]);
 
 
 onMounted(() => {
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+
+
   var filterKey: string | undefined = undefined;
   if (router.currentRoute.value.params["title"]) {
     currentPath.value = router.currentRoute.value.params["title"]?.toString();
@@ -159,20 +191,74 @@ onMounted(() => {
 
 });
 
+function handleResize() {
+  if (window.innerWidth <= 768) {
+    isAsideCollapsed.value = true; // 小屏幕自动折叠
+    canAsideCollapsed.value = true;
 
+  }
+  else {
+    isAsideCollapsed.value = false;
+    canAsideCollapsed.value = false;
 
+  }
+}
+
+function toggleAside() {
+  isAsideCollapsed.value = !isAsideCollapsed.value;
+}
 function navigateBack() {
   router.back();
 }
 </script>
 
 <style scoped>
-.hero-card {
-  height: 280px;
-  border-radius: 10px;
-  margin-top: 20px;
-  background-color: #ffffff;
+.responsive-container {
+  display: flex;
+  flex-direction: row;
 }
+
+.responsive-aside {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: block;
+}
+
+
+
+.aside-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+}
+
+.aside-content {
+  padding: 10px;
+}
+
+.responsive-aside.collapsed .aside-content {
+  display: none;
+
+  /* 隐藏内容 */
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+  .responsive-container {
+    flex-direction: column;
+    /* 纵向布局 */
+  }
+
+  .responsive-aside {
+    width: 100%;
+    /* 侧边栏全屏 */
+    order: -1;
+    /* 放在最顶部 */
+  }
+
+}
+
 
 .content ul {
   list-style-type: none;

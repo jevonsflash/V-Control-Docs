@@ -35,6 +35,13 @@ export const config: ConfigResult = {
                 isHide: false,
                 docs: [
                     {
+                        title: "starter",
+                        displayTitle: "开始",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
                         title: "colors",
                         displayTitle: "颜色系统",
                         tags: [],
@@ -66,6 +73,14 @@ export const config: ConfigResult = {
                     {
                         title: "v-button",
                         displayTitle: "VButton",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-checkbox",
+                        displayTitle: "VCheckBox",
                         tags: [],
                         isHide: false,
                         description: "",

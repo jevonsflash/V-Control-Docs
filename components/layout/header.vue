@@ -26,7 +26,7 @@
         >首页</el-menu-item>
         <el-menu-item
           index="2"
-          route="/documents/cah"
+          route="/documents/starter"
         >Docs</el-menu-item>
         <el-menu-item>
           <a
