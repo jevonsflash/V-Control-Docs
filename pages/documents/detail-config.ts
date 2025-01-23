@@ -79,12 +79,37 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-entry",
+                        displayTitle: "VEntry",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-checkbox",
                         displayTitle: "VCheckBox",
                         tags: [],
                         isHide: false,
                         description: "",
+                    },
+                    {
+
+                        title: "v-menu-cell",
+                        displayTitle: "VMenuCell",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-checkable-collection",
+                        displayTitle: "VCheckableCollection",
+                        tags: [],
+                        isHide: false,
+                        description: "",
                     }
+
                 ],
             },
 

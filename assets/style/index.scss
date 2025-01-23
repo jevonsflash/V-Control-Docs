@@ -86,12 +86,12 @@ a:hover {
 
 /* card */
 .el-card {
-  background-color: var(--el-fill-color-light) !important;
+  background-color: var(--el-color-primary-light-9) !important;
 }
 
 .el-card.is-hover-animation {
   background-size: 300% 100%;
-  background-image: linear-gradient(to right, var(--el-fill-color-light), var(--el-fill-color-light), var(--el-fill-color-light), var(--el-color-primary-light-9));
+  background-image: linear-gradient(to right, var(--el-color-primary-light-9), var(--el-color-primary-light-9), var(--el-color-primary-light-9), var(--el-color-primary-light-9));
   transition: all .5s ease-out !important;
 
 }
@@ -250,6 +250,12 @@ a:hover {
   background: var(--el-fill-color-lighter);
 }
 
+.content :not(pre)>code {
+  background: var(--el-color-primary-light-9);
+  word-wrap: break-word;
+  border-radius: 3px;
+}
+
 .content figure {
 
   margin-right: 2em;
@@ -344,7 +350,7 @@ a:hover {
 }
 
 .app-item {
-  background-color: var(--el-fill-color-light);
+  background-color: var(--el-color-primary-light-9);
   display: inline-block;
   height: 100%;
   width: 100%;
