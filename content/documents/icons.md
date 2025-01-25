@@ -67,7 +67,7 @@ Unicode 编码
 
 CodeBehind
 
-```csharp
+```C#
 IconItemList = new ObservableCollection<dynamic>(){
     new { Title= "house"  , Icon="\uF015", TextColor="Red",  FontFamily="FontAwesome-Solid"},
     new { Title= "magnifying-glass"  , Icon="\uF002", TextColor="green",  FontFamily="FontAwesome-Solid" },

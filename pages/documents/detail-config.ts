@@ -77,10 +77,11 @@ export const config: ConfigResult = {
                         isHide: false,
                         description: "",
                     },
+
                     {
 
-                        title: "v-entry",
-                        displayTitle: "VEntry",
+                        title: "v-checkable-collection",
+                        displayTitle: "VCheckableCollection",
                         tags: [],
                         isHide: false,
                         description: "",
@@ -95,6 +96,30 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-datepicker",
+                        displayTitle: "VDatePicker",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-entry",
+                        displayTitle: "VEntry",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-expander",
+                        displayTitle: "VExpander",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-menu-cell",
                         displayTitle: "VMenuCell",
                         tags: [],
@@ -103,12 +128,45 @@ export const config: ConfigResult = {
                     },
                     {
 
-                        title: "v-checkable-collection",
-                        displayTitle: "VCheckableCollection",
+                        title: "v-number-entry",
+                        displayTitle: "VNumberEntry",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-placeholder-view",
+                        displayTitle: "VPlaceholderView",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-radiobutton-group",
+                        displayTitle: "VRadioButtonGroup",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-searchbar",
+                        displayTitle: "VSearchbar",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-validating-entry",
+                        displayTitle: "VValidatingEntry",
                         tags: [],
                         isHide: false,
                         description: "",
                     }
+
 
                 ],
             },
