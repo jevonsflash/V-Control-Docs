@@ -88,8 +88,24 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-checkbox-button",
+                        displayTitle: "VCheckboxButton",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-checkbox",
                         displayTitle: "VCheckBox",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-collection",
+                        displayTitle: "VCollection",
                         tags: [],
                         isHide: false,
                         description: "",
@@ -152,8 +168,32 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-rich-text-editor",
+                        displayTitle: "VRichTextEditor",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-searchbar",
                         displayTitle: "VSearchbar",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-tag-picker",
+                        displayTitle: "VTagPicker",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-timeline",
+                        displayTitle: "VTimeLine",
                         tags: [],
                         isHide: false,
                         description: "",
