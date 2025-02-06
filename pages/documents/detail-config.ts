@@ -96,6 +96,14 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-checkbox-group",
+                        displayTitle: "VCheckboxGroup",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-checkbox",
                         displayTitle: "VCheckBox",
                         tags: [],
@@ -136,6 +144,14 @@ export const config: ConfigResult = {
                     },
                     {
 
+                        title: "v-form-item",
+                        displayTitle: "VFormItem",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
                         title: "v-menu-cell",
                         displayTitle: "VMenuCell",
                         tags: [],
@@ -146,6 +162,14 @@ export const config: ConfigResult = {
 
                         title: "v-number-entry",
                         displayTitle: "VNumberEntry",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-picker",
+                        displayTitle: "VPicker",
                         tags: [],
                         isHide: false,
                         description: "",
@@ -202,6 +226,14 @@ export const config: ConfigResult = {
 
                         title: "v-validating-entry",
                         displayTitle: "VValidatingEntry",
+                        tags: [],
+                        isHide: false,
+                        description: "",
+                    },
+                    {
+
+                        title: "v-validating-picker",
+                        displayTitle: "VValidatingPicker",
                         tags: [],
                         isHide: false,
                         description: "",

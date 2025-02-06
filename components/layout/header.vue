@@ -5,8 +5,7 @@
         :default-active="activeIndex"
         mode="horizontal"
         :router="true"
-        :ellipsis="isEllipsis"
-        :ellipsis-icon="ElIconMenu"
+        :ellipsis="false"
         menu-trigger="click"
         @select="handleSelect"
       >
@@ -14,11 +13,7 @@
           index="0"
           route="/"
         >
-          <!-- <img
-            style="width: 100px"
-            src="/assets/images/title-logo.png"
-            alt="林晓lx"
-          /> -->
+          <span style="font-size: 28px;">V-Control</span>
         </el-menu-item>
         <el-menu-item
           index="1"

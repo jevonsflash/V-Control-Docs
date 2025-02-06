@@ -23,7 +23,9 @@
             class="toggle-button"
             size="mini"
             @click="toggleAside"
-            :icon="isAsideCollapsed ? CaretTop : CaretBottom"
+            type="primary"
+            round
+            :icon="!isAsideCollapsed ? CaretTop : CaretBottom"
           >
 
             MENU
@@ -227,14 +229,15 @@ function navigateBack() {
 
 
 .aside-header {
+  padding-left: 20px;
   display: flex;
   justify-content: start;
   align-items: center;
-  height: 50px;
+  height: 100px;
 }
 
 .aside-content {
-  padding: 10px;
+  padding: 0 20px;
 }
 
 .responsive-aside.collapsed .aside-content {
