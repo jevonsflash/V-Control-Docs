@@ -19,6 +19,10 @@ export interface IUserState {
 
 }
 
+export interface ILocalizationState {
+    language: string;
+}
+
 import { defineStore } from 'pinia'
 
 
@@ -123,3 +127,15 @@ export const useUserModuleStore = defineStore('main', {
     },
 })
 
+
+export const useLocalizationStore = defineStore('main', {
+    state: (): ILocalizationState => ({
+        language: 'en',
+    }),
+    actions: {
+        SET_LANG(language: string) {
+            this.language = language;
+        }
+
+    },
+})

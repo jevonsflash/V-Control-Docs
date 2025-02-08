@@ -2,7 +2,7 @@
   <div class="container">
 
     <Head>
-      <Title>首页</Title>
+      <Title>Home</Title>
     </Head>
     <section>
       <el-row>
@@ -68,9 +68,11 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from 'element-plus'
+import { useLocalizationStore } from "../store";
 
 const router = useRouter();
 const searchText = ref("");
+const Localization = useLocalizationStore();
 
 function goSearch() {
   if (searchText.value === "") {

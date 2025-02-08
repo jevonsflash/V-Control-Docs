@@ -1,30 +1,57 @@
 <template>
   <header>
-    <div class="container">
-      <el-menu
-        :default-active="activeIndex"
-        mode="horizontal"
-        :router="true"
-        :ellipsis="false"
-        menu-trigger="click"
-        @select="handleSelect"
-      >
-        <el-menu-item
-          index="0"
-          route="/"
+    <el-config-provider :locale="locale">
+      <div class="container">
+        <el-menu
+          :default-active="activeIndex"
+          mode="horizontal"
+          :router="true"
+          :ellipsis="false"
+          menu-trigger="click"
+          @select="handleSelect"
         >
-          <span style="font-size: 28px;">V-Control</span>
-        </el-menu-item>
-        <el-menu-item
-          index="1"
-          route="/"
-        >首页</el-menu-item>
-        <el-menu-item
-          index="2"
-          route="/documents/starter"
-        >Docs</el-menu-item>
-        <el-menu-item>
+          <el-menu-item
+            index="0"
+            route="/"
+          >
+            <span style="font-size: 28px;">V-Control</span>
+          </el-menu-item>
+          <el-menu-item
+            index="1"
+            route="/"
+          >{{ Localization.language === 'zh-cn' ? `首页` : `Home` }}</el-menu-item>
+          <el-menu-item
+            index="2"
+            route="/documents/starter"
+          >{{ Localization.language === 'zh-cn' ? `文档` : `Docs` }}</el-menu-item>
+
+          <el-dropdown @command="handleCommand">
+            <span class="menu-button">
+
+              <el-icon>
+                <svg
+                  data-v-f414ea64=""
+                  viewBox="0 0 24 24"
+                  width="1.2em"
+                  height="1.2em"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m18.5 10l4.4 11h-2.155l-1.201-3h-4.09l-1.199 3h-2.154L16.5 10h2zM10 2v2h6v2h-1.968a18.222 18.222 0 0 1-3.62 6.301a14.864 14.864 0 0 0 2.336 1.707l-.751 1.878A17.015 17.015 0 0 1 9 13.725a16.676 16.676 0 0 1-6.201 3.548l-.536-1.929a14.7 14.7 0 0 0 5.327-3.042A18.078 18.078 0 0 1 4.767 8h2.24A16.032 16.032 0 0 0 9 10.877a16.165 16.165 0 0 0 2.91-4.876L2 6V4h6V2h2zm7.5 10.885L16.253 16h2.492L17.5 12.885z"
+                  ></path>
+                </svg>
+              </el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="en">English</el-dropdown-item>
+                <el-dropdown-item command="zh-cn">中文</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+
           <a
+            class="menu-button"
             href="https://github.com/jevonsflash/V-Control"
             target="_blank"
           >
@@ -47,9 +74,10 @@
             </el-icon>
 
           </a>
-        </el-menu-item>
-      </el-menu>
-    </div>
+
+        </el-menu>
+      </div>
+    </el-config-provider>
   </header>
 </template>
 
@@ -57,16 +85,19 @@
   lang="ts"
   setup
 >
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useUserModuleStore } from "../../store";
 import { getIsNull, successMessage } from "../../utils/common";
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import en from 'element-plus/dist/locale/en.mjs'
+import { useLocalizationStore } from "../../store";
+import { setLang } from '../../utils/common';
 
 const activeIndex = ref("1");
 const route = useRoute();
 const router = useRouter();
 const isEllipsis = ref(false);
-const UserModule = useUserModuleStore();
+const Localization = useLocalizationStore();
 
 // 监听窗口大小变化并更新 isEllipsis 的值
 function handleResize() {
@@ -75,6 +106,16 @@ function handleResize() {
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+
+
+const locale = computed(() => (Localization.language === 'zh-cn' ? zhCn : en))
+
+
+function handleCommand(lang: string) {
+  Localization.SET_LANG(lang);
+  setLang(lang);
+}
+
 
 function setActiveIndexBasedOnRoute() {
   if (route.path.includes("/documents")) {
@@ -94,6 +135,11 @@ onMounted(() => {
   handleResize();
 });
 
+
+
+
+
+
 function goLogin() {
   router.push(`/login`)
 }
@@ -108,22 +154,13 @@ function goLogin() {
   width: 100%;
 }
 
-.user-state {
+.menu-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin: 0;
-  border-bottom: 2px solid transparent;
-  color: var(--el-menu-text-color);
-  cursor: pointer;
-}
-
-.user-state-popup {
-  margin: 0 25px;
-}
-
-.user-avatar {
-  margin: 10px
+  line-height: var(--el-menu-item-height);
+  font-size: 21px;
+  margin: 0 10px;
 }
 </style>

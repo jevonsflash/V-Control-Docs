@@ -5,34 +5,34 @@ export const config: ConfigResult = {
         [
             {
                 title: "basic",
-                displayTitle: "基础",
+                displayTitle: "Basic",
                 tags: [],
                 isHide: false,
                 docs: [
                     {
                         title: "starter",
-                        displayTitle: "开始",
+                        displayTitle: "Starter",
                         tags: [],
                         isHide: false,
                         description: "",
                     },
                     {
                         title: "colors",
-                        displayTitle: "颜色系统",
+                        displayTitle: "Color System",
                         tags: [],
                         isHide: false,
                         description: "",
                     },
                     {
                         title: "global-styles",
-                        displayTitle: "全局样式",
+                        displayTitle: "Built-in Styles",
                         tags: [],
                         isHide: false,
                         description: "",
                     },
                     {
                         title: "icons",
-                        displayTitle: "图标",
+                        displayTitle: "Icons",
                         tags: [],
                         isHide: false,
                         description: "",
@@ -41,7 +41,7 @@ export const config: ConfigResult = {
             },
             {
                 title: "controls",
-                displayTitle: "控件库",
+                displayTitle: "Controls",
                 tags: [],
                 isHide: false,
                 docs: [

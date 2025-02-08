@@ -89,7 +89,7 @@
         <section>
           <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">
-              首页
+              {{ Localization.language === 'zh-cn' ? `首页` : `Home` }}
             </el-breadcrumb-item>
             <el-breadcrumb-item>{{ currentConfig?.displayTitle ? currentConfig.displayTitle : currentPath
               }}</el-breadcrumb-item>
@@ -129,7 +129,9 @@
         <section>
 
           <div class="content">
-            <ContentDoc :path="`/documents/${currentPath?.toLowerCase()}`">
+            <ContentDoc
+              :path="`/documents/${Localization.language === 'zh-cn' ? currentPath?.toLowerCase() : currentPath?.toLowerCase() + '-en'}`"
+            >
               <template v-slot:not-found>
                 <el-empty description="找不到内容">
 
@@ -150,21 +152,24 @@
   lang='ts'
   setup
 >
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRouter, onBeforeRouteUpdate } from "vue-router";
 import Enumerable from "linq";
-import { config, IDocumentConfig, IDocumentGroupConfig } from "./detail-config";
-import { useAsyncData } from "nuxt/app";
+import { config } from "./detail-config";
+import { config as config_en } from "./detail-config-en";
+import { useLocalizationStore } from "../../store";
 
 import {
   ArrowUp, ArrowDown, CaretBottom, CaretTop
 } from '@element-plus/icons-vue'
+import { IDocumentConfig, IDocumentGroupConfig } from "../../utils/struct";
 const currentPath = ref<string | undefined>("");
 const currentConfig = ref<IDocumentConfig>();
 const isAsideCollapsed = ref<boolean>(true);
 const canAsideCollapsed = ref<boolean>(true);
 const router = useRouter();
 const documentGroups = ref([] as IDocumentGroupConfig[]);
+const Localization = useLocalizationStore();
 
 
 onMounted(() => {
@@ -173,23 +178,28 @@ onMounted(() => {
   handleResize();
 
 
-  var filterKey: string | undefined = undefined;
   if (router.currentRoute.value.params["title"]) {
     currentPath.value = router.currentRoute.value.params["title"]?.toString();
   } else {
     currentPath.value = "";
   }
 
-  currentConfig.value = Enumerable.from(config.result).selectMany(c => c.docs).firstOrDefault(
+
+
+
+  currentConfig.value = Enumerable.from(Localization.language === 'zh-cn' ? config.result : config_en.result).selectMany(c => c.docs).firstOrDefault(
     (c) => c.title == currentPath.value
   );
 
-  documentGroups.value =
-    filterKey !== undefined
-      ? Enumerable.from(config.result)
-        .where((c) => Enumerable.from(c.tags).contains(filterKey as string))
-        .toArray()
-      : config.result;
+  documentGroups.value = Localization.language === 'zh-cn' ? config.result : config_en.result
+});
+
+watch(Localization, (New, Old) => {
+  currentConfig.value = Enumerable.from(Localization.language === 'zh-cn' ? config.result : config_en.result).selectMany(c => c.docs).firstOrDefault(
+    (c) => c.title == currentPath.value
+  );
+
+  documentGroups.value = Localization.language === 'zh-cn' ? config.result : config_en.result
 
 });
 

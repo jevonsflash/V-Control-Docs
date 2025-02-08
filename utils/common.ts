@@ -1,6 +1,7 @@
 
 import { ElMessageBox, ElMessage } from 'element-plus'
 import { useUserModuleStore } from '../store';
+import Cookies from 'js-cookie'
 
 export function isLogin() {
     const UserModule = useUserModuleStore();
@@ -46,4 +47,14 @@ export function InputConfrim(options: any) {
             options.callback((value as any).value);
         })
         .catch(() => { });
+}
+
+
+const langKey = 'lang'
+
+export const getLang = () => {
+    return Cookies.get(langKey);
+}
+export const setLang = (lang: string) => {
+    Cookies.set(langKey, lang);
 }
