@@ -3,7 +3,12 @@
 
     <div class="footer-contact">
       <div>
-        <p class="footer-contact-title">V-Control: An out-of-the-box .NET MAUI component library</p>
+
+        <p class="footer-contact-title">
+
+          {{ Localization.language === 'zh-cn' ? `V-Control: 一个基于.NET MAUI 的开箱即用的业务组件库` :`V-Control: An out-of-the-box .NET
+          MAUI component library` }}
+        </p>
 
       </div>
       <div>
@@ -31,7 +36,7 @@
               </svg>
             </el-icon>
             <span> </span>
-            <span>7</span>
+            <span>31</span>
           </el-button></a>
 
       </div>
@@ -50,13 +55,14 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: "clFooter",
-  data() {
-    return {};
-  },
-};
+<script
+  setup
+  lang="ts"
+>
+import { useLocalizationStore } from "../../store";
+const Localization = useLocalizationStore();
+
+
 </script>
 
 <style>

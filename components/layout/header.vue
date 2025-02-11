@@ -10,10 +10,7 @@
           menu-trigger="click"
           @select="handleSelect"
         >
-          <el-menu-item
-            index="0"
-            route="/"
-          >
+          <el-menu-item route="/">
             <span style="font-size: 28px;">V-Control</span>
           </el-menu-item>
           <el-menu-item
@@ -117,27 +114,24 @@ function handleCommand(lang: string) {
 }
 
 
-function setActiveIndexBasedOnRoute() {
-  if (route.path.includes("/documents")) {
+function setActiveIndexBasedOnRoute(path: string) {
+  if (path === "/") {
+    activeIndex.value = "1";
+  } else if (path.includes("/documents")) {
     activeIndex.value = "2";
-  } else if (route.path.includes("/skills-and-tools")) {
-    activeIndex.value = "3";
-  } else if (route.path.includes("/contact")) {
-    activeIndex.value = "5";
   }
 }
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
 });
 onMounted(() => {
-  setActiveIndexBasedOnRoute();
+  setActiveIndexBasedOnRoute(route.path);
+  router.beforeEach((to) => {
+    setActiveIndexBasedOnRoute(to.path);
+  });
   window.addEventListener("resize", handleResize);
   handleResize();
 });
-
-
-
-
 
 
 function goLogin() {

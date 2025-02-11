@@ -23,8 +23,7 @@
             class="toggle-button"
             size="mini"
             @click="toggleAside"
-            type="primary"
-            round
+            type="text"
             :icon="!isAsideCollapsed ? CaretTop : CaretBottom"
           >
 
