@@ -6,7 +6,8 @@
 
         <p class="footer-contact-title">
 
-          {{ Localization.language === 'zh-cn' ? `V-Control: 一个基于.NET MAUI 的开箱即用的业务组件库` :`V-Control: An out-of-the-box .NET
+          {{ Localization.language === 'zh-cn' ? `V-Control: 一个基于.NET MAUI 的开箱即用的业务组件库` : `V-Control: An out-of-the-box
+          .NET
           MAUI component library` }}
         </p>
 
@@ -43,11 +44,11 @@
     </div>
 
     <div class="footer">
-      <!-- <img
-        height="28"
-        src="/assets/images/title-logo.png"
-        alt="林晓lx"
-      /> -->
+      <p> <img
+          height="14"
+          src="/footer/china.svg"
+          alt="China"
+        /> China, Guangzhou</p>
       <p>© 2025 V-Control Powered by Vue.js & Nuxt3</p>
       <p>粤ICP备19056721号</p>
     </div>
